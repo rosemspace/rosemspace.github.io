@@ -10,10 +10,15 @@ npm run build
 cd dist
 
 git init
+git config user.name "Roman Shevchenko"
+git config user.email "iroman.via@gmail.com"
 git add -A
 git commit -m 'deploy'
 
 # deploying to https://rosemlab.github.io
-# git push -f git@github.com:rosemlab/rosemlab.github.io.git master
+git push -f git@github.com:rosemlab/rosemlab.github.io.git master
+
+# remove git folder
+rm -rf .git
 
 cd -
