@@ -9,24 +9,22 @@
       <!--<router-link to="/packages">Our packages</router-link>-->
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view id="content"/>
   </div>
 </template>
 
 <style lang="postcss">
-html,
-body {
-  height: 100vh;
-}
-body {
-  overflow-y: scroll;
-  margin: 0;
-}
+@import "./design/index.pcss";
 
-a:visited {
-  color: inherit;
+#content {
+  & a {
+    color: #e4f9ff;
+    text-decoration: none;
+  }
 }
+</style>
 
+<style lang="postcss" scoped>
 #app {
   position: relative;
   /*font-family: "Avenir", Helvetica, Arial, sans-serif;*/
@@ -55,15 +53,18 @@ a:visited {
       transform: scale(1.4);
     }
   }
+}
 
-  & h1 {
-    color: #8ee4ff;
-
-    & span {
-      /*color: #ffabab;*/
-      color: #ffc6ab;
-    }
-  }
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
 }
 
 #nav {
@@ -89,7 +90,7 @@ a:visited {
   }
 }
 
-#nav + div {
+#content {
   display: flex;
   flex-direction: column;
   align-items: center;

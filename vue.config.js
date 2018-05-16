@@ -1,72 +1,86 @@
 const path = require("path");
-  // ExtractTextPlugin = require("extract-text-webpack-plugin"),
-  // HtmlWebpackPlugin = require("html-webpack-plugin");
-  // Config = require("webpack-chain");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+// ExtractTextPlugin = require("extract-text-webpack-plugin"),
+// HtmlWebpackPlugin = require("html-webpack-plugin");
+// chain = require("webpack-chain");
 
 module.exports = {
   lintOnSave: true,
-  configureWebpack: (config) => {
+  configureWebpack: config => {
     // const extractHTML = config.plugins.find(
     //   plugin => plugin instanceof HtmlWebpackPlugin
     // );
     // extractHTML.options.template = path.resolve(__dirname, "src/rosem/admin/index.html");
-
     return {
       resolve: {
         alias: {
-          "rosem.css": path.resolve(__dirname, "src/rosem-css/style.pcss"),
-          "rosem-ui": path.resolve(__dirname, "src/rosem-ui"),
+          // "rosem.css": path.resolve(__dirname, "src/rosem-css/style.pcss"),
+          // "rosem-ui": path.resolve(__dirname, "src/rosem-ui"),
         }
       },
       module: {
         rules: [
           {
-            test: /\.pcss$/,
-            use: [
-              "vue-style-loader",
+            test: /\.postcss$/,
+            oneOf: [
               {
-                loader: "css-loader",
-                options: {
-                  importLoaders: 1,
-                  sourceMap: true
-                }
+                resourceQuery: /module/,
+                use: [
+                  {
+                    loader: "vue-style-loader",
+                    options: {
+                      sourceMap: false,
+                      shadowMode: false
+                    }
+                  },
+                  {
+                    loader: "css-loader",
+                    options: {
+                      minimize: false,
+                      sourceMap: false,
+                      importLoaders: 1,
+                      modules: true,
+                      localIdentName: "[name]_[local]_[hash:base64:5]"
+                    }
+                  },
+                  {
+                    loader: "postcss-loader",
+                    options: {
+                      sourceMap: false
+                    }
+                  }
+                ]
               },
               {
-                loader: "postcss-loader",
-                options: {
-                  sourceMap: true
-                }
+                use: [
+                  {
+                    loader: "vue-style-loader",
+                    options: {
+                      sourceMap: false,
+                      shadowMode: false
+                    }
+                  },
+                  {
+                    loader: "css-loader",
+                    options: {
+                      minimize: false,
+                      sourceMap: false,
+                      importLoaders: 1
+                    }
+                  },
+                  {
+                    loader: "postcss-loader",
+                    options: {
+                      sourceMap: false,
+                      config: {
+                        path: ".postcssrc.js"
+                      }
+                    }
+                  }
+                ]
               }
             ]
           }
-
-          // {
-          //   test: /\.css$/,
-          //   use: extractCSS.extract({
-          //     fallback: "style-loader",
-          //     use: "css-loader"
-          //   })
-          // },
-          // {
-          //   test: /\.pcss$/,
-          //   use: extractCSS.extract({
-          //     fallback: "style-loader",
-          //     use: [
-          //       {
-          //         loader: "css-loader",
-          //         options: {
-          //           sourceMap: true
-          //         }
-          //       },
-          //       {
-          //         loader: "postcss-loader",
-          //         options: {
-          //           sourceMap: true
-          //         }
-          //       }
-          //     ]
-          //   })
-          // }
         ]
       }
     };
