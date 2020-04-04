@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img id="logo" src="../assets/logo.jpg">
+    <img id="logo" src="../assets/logo.png">
     <div class="hello">
       <h1>Welcome to <span>Rosem</span> laboratory</h1>
       <p>
@@ -22,18 +22,28 @@ export default {
 
 <style lang="postcss" scoped>
 #logo {
-  border: 1px solid #866c60;
-  border-radius: 50%;
-  box-shadow: 0 2px 2px #7b7c7e;
+  width: 242px;
+  /*border: 1px solid #866c60;*/
+  border-radius: 5%;
+  /*box-shadow: 0 2px 2px #7b7c7e;*/
+  box-shadow: 0 14px 20px #13131380;
+}
+
+.hello {
+  /*margin-top: 40px;*/
+  padding: 20px 40px;
 }
 
 h1 {
   font-size: 2rem;
-  color: #8ee4ff;
+  /*color: #8ee4ff;*/
+  /*color: #f3f9fa;*/
 
   & span {
     /*color: #ffabab;*/
-    color: #ffc6ab;
+    /*color: #ffc6ab;*/
+    /*color: #cf498c;*/
+    color: #ffddee;
   }
 }
 </style>

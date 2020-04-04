@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+:root,
+body {
+  height: 100vh;
+}
+
+body {
+  float: left;
+  margin: 0;
+  width: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  /* Add hyphens in text on IE10+, Firefox, Android and iOS.
+  Requires "lang" attribute on <html> element */
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+
+  /* Remove tap color */
+  -webkit-tap-highlight-color: transparent;
+
+  /* Adds momentum-based scrolling on iOS Safari */
+  -webkit-overflow-scrolling: touch;
+
+  /* Disable text scaling in horizontal mode */
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+
+  /* Fix different weight of some fonts on iOS Safari */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*p {
+  font-size: 1rem;
+}*/
+
+a:visited {
+  color: inherit;
+}
+
+strong {
+  font-weight: bolder;
+}
+
+.row {
+  display: flex;
+}
+
+/* Touch devices only (opposite syntax - @media (hover)) */
+@media (pointer: coarse) {}

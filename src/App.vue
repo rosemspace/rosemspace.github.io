@@ -1,102 +1,67 @@
 <template>
   <div id="app">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:100,200,300,400,500,600,700">
-    <div class="bg-image">
-      <img src="./assets/bg.jpg" alt="Background image">
-    </div>
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <!--<router-link to="/packages">Our packages</router-link>-->
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view id="content"/>
+    <RosemNavigation />
+    <main>
+      <div class="bg">
+        <img src="./assets/bg.jpg" alt="Background image" />
+      </div>
+      <router-view name="greeting" />
+      <router-view id="content" />
+    </main>
   </div>
 </template>
 
+<script>
+import RosemNavigation from './views/Navigation.vue'
+
+export default {
+  name: 'RosemApp',
+
+  components: {
+    RosemNavigation
+  },
+}
+</script>
+
 <style lang="postcss">
 @import "./design/index.pcss";
-
-#content {
-  & a {
-    color: #e4f9ff;
-    text-decoration: none;
-  }
-}
+@import "./theme/index.pcss";
 </style>
 
 <style lang="postcss" scoped>
 #app {
-  position: relative;
-  /*font-family: "Avenir", Helvetica, Arial, sans-serif;*/
-  font-family: "Montserrat Alternates", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+}
 
-  & > .bg-image {
-    display: block;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+main {
+  position: relative;
+  min-height: calc(100vh - var(--menu-height));
+}
 
-    & > img {
-      image-rendering: pixelated;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: blur(30px);
-      transform: scale(1.4);
-    }
+.bg {
+  position: absolute;
+
+  /* nav height */
+  top: -80px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: block;
+  overflow: hidden;
+
+  & > img {
+    width: 100%;
+    /*height: 100%;*/
+    min-height: 100%;
+    filter: blur(14px);
+    image-rendering: pixelated;
+    object-fit: cover;
+    /*object-position: top;*/
+    transform: scale(1.1) translateY(3%);
   }
-}
-
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-#nav {
-  position: sticky;
-  top: 0;
-  display: flex;
-  justify-content: flex-end;
-  font-size: 1rem;
-  font-weight: bold;
-  font-variant: small-caps;
-  padding: 0 10px;
-  background-color: #fff2;
-  color: #455f7c;
-
-  & a {
-    text-decoration: none;
-    padding: 10px;
-
-    &.router-link-exact-active {
-      /*color: #71d5f5;*/
-      color: #d1f4ff;
-    }
-  }
-}
-
-#content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 2rem;
-  min-height: calc(100vh - 39px);
 }
 </style>

@@ -20,8 +20,8 @@ git config user.email "iroman.via@gmail.com"
 git add -A
 git commit -m 'deploy'
 
-# deploy to https://rosemlab.github.io
-git push -f git@github.com:rosemlab/rosemlab.github.io.git master
+# deploy to https://rosemspace.github.io
+git push -f git@github.com:rosemspace/rosemspace.github.io.git master
 
 # remove git folder
 rm -rf .git
