@@ -4,8 +4,7 @@
     <!--    <img class="ava" src="./assets/ava.jpg" alt="Photo" />-->
     <div class="hello">
       <h1 class="title">
-        <span class="brand"><span class="r">R</span><span class="o">o</span>sem</span>
-        <span class="domain"><span class="dot">.</span>space</span>
+        <span class="brand"><span class="r">R</span><span class="o">o</span>sem</span><wbr /><span class="domain"><span class="dot">.</span>space</span>
       </h1>
       <!--      <h1 class="title"><span class="brand"><span class="r">R</span>oshe</span></h1>-->
       <p>
@@ -14,15 +13,9 @@
 <!--        <em>Work in progress...</em>-->
       </p>
       <ul class="social">
-        <li><a href="https://www.linkedin.com/in/roshejob" target="_blank">linkedin</a></li>
-        <li><a href="https://medium.com/@roshestory" target="_blank">medium</a></li>
-        <li><a href="https://dev.to/roshedev" target="_blank">dev</a></li>
-        <li><a href="https://www.instagram.com/roshephoto" target="_blank">instagram</a></li>
-        <li><a href="https://www.facebook.com/rosheface" target="_blank">facebook</a></li>
-        <li><a href="https://twitter.com/roshenews" target="_blank">twitter</a></li>
-        <li><a href="https://disqus.com/by/roshediscuss" target="_blank">disqus</a></li>
-        <li><a href="https://www.patreon.com/roshe" target="_blank">patreon</a></li>
-        <li><a href="https://github.com/roshecode" target="_blank">github</a></li>
+        <li v-for="{ title, url } in links">
+          <a :href="url" target="_blank">{{ title }}</a>
+        </li>
       </ul>
       <p>
         Hi there! My name is <strong>Roman Shevchenko</strong>. I'm a web developer.<br>
@@ -32,6 +25,20 @@
     </div>
   </div>
 </template>
+
+<script>
+import links from '../data/links/roshe.json'
+
+export default {
+  name: 'RosemGreeting',
+
+  data() {
+    return {
+      links
+    }
+  }
+}
+</script>
 
 <style lang="postcss" scoped>
 .hello {
@@ -151,11 +158,8 @@
 
 .title {
   font-size: 5.2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   /*color: var(--secondary-color);*/
-  color: #fff2c0;
+  color: var(--domain-color);
   /*color: #ffca09;*/
 
   &:hover {
@@ -172,9 +176,9 @@
   font-size: 5rem;
   /*color: var(--main-color-light);*/
   /*color: #ff4f4f;*/
-  color: #ffb05f;
+  color: var(--brand-color);
   /*color: #ffdddd;*/
-  white-space: nowrap;
+  /*white-space: nowrap;*/
 }
 
 .r {
@@ -196,8 +200,11 @@
 
 .o {
   position: relative;
-  top: 8px;
+  /*top: 8px;*/
   color: transparent;
+  /* Move the letter outside the screen instead of transparency to keep currentColor value */
+  /*display: inline-block;*/
+  /*text-indent: -99999%;*/
 
   &::after {
     content: '';
@@ -207,14 +214,14 @@
     /*left: .1rem;*/
     /*width: 3rem;*/
     /*height: 3rem;*/
-    top: 2rem;
-    left: .1rem;
+    top: 3.05rem;
+    left: .12rem;
     width: 2.8rem;
     height: 2.8rem;
     border-radius: 50%;
-    border: solid 1px #ffb05f;
+    border: solid 1px var(--brand-color);
     /*background: currentColor radial-gradient(currentColor, #dc8b38);*/
-    transform-origin: -2.05rem .05rem;
+    transform-origin: -2.1rem 0;
     transition: transform 2s linear;
   }
 }
