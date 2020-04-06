@@ -19,8 +19,8 @@
       </ul>
       <p>
         Hi there! My name is <strong>Roman Shevchenko</strong>. I'm a web developer.<br>
-        My goal is to create centralized space of modern web packages for different kind of businesses.
-        Thanks for inspiration to my ❤ <strong><a href="https://rosem-portfolio.netlify.com" target="_blank">Romanna Semenyshyn</a></strong>.
+        My goal is to create centralized space of modern web packages for different kind of businesses.<br>
+        Thanks for inspiration to my <span class="love">❤</span> <strong><a href="https://rosem-portfolio.netlify.com" target="_blank">Romanna Semenyshyn</a></strong>.
       </p>
     </div>
   </div>
@@ -34,17 +34,33 @@ export default {
 
   data() {
     return {
-      links
+      links,
     }
-  }
+  },
 }
 </script>
 
 <style lang="postcss" scoped>
+.greeting {
+  flex-grow: 1;
+  padding-bottom: 20px;
+  font-size: 1.6rem;
+  font-weight: 200;
+  text-align: center;
+
+  & p {
+    & a {
+      &:hover {
+        border-bottom: solid 1px;
+      }
+    }
+  }
+}
+
 .hello {
   margin: 20px auto;
-  padding: .1px 40px;
-  max-width: 800px;
+  padding: .1px 20px;
+  max-width: 850px;
   /*background: radial-gradient(#415c8a8f, transparent 105%);*/
 
   & p {
@@ -123,22 +139,6 @@ export default {
   }
 }
 
-.greeting {
-  flex-grow: 1;
-  padding-bottom: 20px;
-  font-size: 1.6rem;
-  font-weight: 200;
-  text-align: center;
-
-  & p {
-    & a {
-      &:hover {
-        border-bottom: solid 1px;
-      }
-    }
-  }
-}
-
 .logo,
 .ava {
   width: 34vw;
@@ -174,7 +174,6 @@ export default {
 
 .brand {
   font-size: 5rem;
-  /*color: var(--main-color-light);*/
   /*color: #ff4f4f;*/
   color: var(--brand-color);
   /*color: #ffdddd;*/
@@ -224,6 +223,10 @@ export default {
     transform-origin: -2.1rem 0;
     transition: transform 2s linear;
   }
+}
+
+.love {
+  color: tomato;
 }
 
 @keyframes planet-spin {

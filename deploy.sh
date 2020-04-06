@@ -6,7 +6,7 @@ set -e
 # build
 npm run build
 
-# create a build output directory if it doesn't not exist
+# create a build output directory if it doesn't exist for some reasons
 mkdir -p dist
 
 # navigate into the build output directory
