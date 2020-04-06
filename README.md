@@ -26,12 +26,13 @@ If you faced with some troubles (no SSL certificate or the site is not loading):
 
 ## Deploy
 
-Open the `deploy.sh` file:
+Update the custom domain in `public/CNAME` file.
+Update the `deploy.sh` file:
 
 1. Update the user name and email used for `git`
 2. Update the URL of a GitHub repository
 
-Run the following command:
+Run the following command (without `sh` keyword on Windows):
 
 ```shell script
 sh deploy.sh
