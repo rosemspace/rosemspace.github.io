@@ -1,9 +1,16 @@
 {
-  "presets": [
-    "@vue/app"
-  ],
-  "plugins": [
-    "@babel/plugin-proposal-export-default-from",
-    "@babel/plugin-syntax-dynamic-import"
-  ]
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    }
+  }
 }
