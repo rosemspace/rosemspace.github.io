@@ -4,6 +4,8 @@
 
 <style lang="postcss" scoped>
 p {
+  @apply text-white;
+
   font-size: 5rem;
   margin: 0;
   color: white;

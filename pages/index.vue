@@ -1,7 +1,7 @@
 <template>
   <main class="container">
     <div class="bg">
-      <img src="~assets/bg.jpg" alt="Background image" />
+      <img src="~assets/images/bg.jpg" alt="Background image" />
     </div>
     <NuxtChild />
   </main>
@@ -11,7 +11,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  transition: 'fade'
+  transition: 'fade',
 })
 </script>
 
@@ -26,7 +26,7 @@ main {
 }
 
 .bg {
-  position: absolute;
+  @apply fixed;
 
   /* nav height */
   top: -80px;
@@ -46,6 +46,12 @@ main {
     object-fit: cover;
     /*object-position: top;*/
     transform: scale(1.1) translateY(3%);
+  }
+}
+
+@media print {
+  .bg {
+    @apply hidden;
   }
 }
 </style>

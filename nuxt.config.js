@@ -11,17 +11,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-  },
-  /*
-   ** Customize the router
-   */
-  router: {
-    linkActiveClass: 'link-active',
-    linkExactActiveClass: 'link-exact-active'
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -43,7 +36,7 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
   /*
    ** Nuxt.js modules
@@ -56,7 +49,7 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     // Doc: https://pwa.nuxtjs.org
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
   ],
   /*
    ** Axios module configuration
@@ -71,9 +64,18 @@ export default {
      ** You can extend webpack config here
      */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+  },
+  router: {
+    linkActiveClass: 'link-active',
+    linkExactActiveClass: 'link-exact-active',
   },
   content: {
     // Options
-  }
+  },
+  workbox: {
+    runtimeCaching: [
+      { urlPattern: 'https://fonts.(googleapis|gstatic).com/.*' },
+    ],
+  },
 }

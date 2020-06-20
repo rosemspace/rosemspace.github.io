@@ -23,8 +23,8 @@
       <p>
         Hi there! My name is <strong>Roman Shevchenko</strong>. I'm a web
         developer.<br />
-        My goal is to create centralized space of modern web packages for
-        different kind of businesses.<br />
+        My goal is to create modern web packages for different kind of
+        businesses.<br />
         Thanks for inspiration to my <span class="love">❤</span>
         <strong
           ><a href="https://rosem-portfolio.netlify.com" target="_blank"
@@ -41,15 +41,14 @@ import links from '../data/links/roshe.json'
 import RosemLogo from '~/components/Logo.vue'
 
 export default {
-  name: 'RosemGreeting',
   components: {
-    RosemLogo
+    RosemLogo,
   },
   data() {
     return {
-      links
+      links,
     }
-  }
+  },
 }
 </script>
 

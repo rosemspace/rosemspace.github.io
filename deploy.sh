@@ -3,11 +3,11 @@
 # abort on errors
 set -e
 
-# build
-npm run build
-
 # create a build output directory if it doesn't exist for some reasons
 mkdir -p dist
+
+# build
+yarn generate
 
 # navigate into the build output directory
 cd dist
@@ -34,6 +34,3 @@ rm -rf .git
 
 # go back
 cd -
-
-# uncomment this line and comment `set -e` if you want to see the errors (useful on Windows)
-#read -p "Press [Enter] key to exit..."

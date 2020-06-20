@@ -6,13 +6,21 @@
  */
 module.exports = {
   important: false,
+  purge: [
+    './components/**/*.html',
+    './components/**/*.vue',
+    './components/**/*.jsx',
+    './pages/**/*.html',
+    './pages/**/*.vue',
+    './pages/**/*.jsx',
+  ],
   theme: {
     extend: {
       borderColor: {
-        default: 'currentColor'
-      }
-    }
+        default: 'currentColor',
+      },
+    },
   },
   variants: {},
-  plugins: []
+  plugins: [],
 }

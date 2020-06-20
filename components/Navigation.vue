@@ -1,7 +1,6 @@
 <template>
   <nav>
     <nuxt-link to="/">Home</nuxt-link>
-    <!--<router-link to="/packages">Our packages</router-link>-->
     <!--    <svg width="1" height="28"><line x1="0" y1="0" x2="0" y2="28" stroke="currentColor"></line></svg>-->
     <nuxt-link to="/authors/roshe">Author</nuxt-link>
   </nav>
@@ -24,14 +23,13 @@ nav {
     center no-repeat;
 
   & a {
+    @apply leading-tight;
+
     padding: 4px 10px;
-    /*font-weight: bold;*/
-    line-height: 1.25;
     color: var(--text-color);
-    /*border-left: solid 1px;*/
 
     &:hover {
-      border-bottom: none;
+      @apply border-b-0;
     }
 
     &:first-of-type {
@@ -47,10 +45,14 @@ nav {
     }
 
     &.link-exact-active {
-      font-weight: bold;
-      /*color: var(--secondary-color);*/
-      /*color: #fff2c0;*/
+      @apply font-bold;
     }
+  }
+}
+
+@media print {
+  nav {
+    @apply hidden;
   }
 }
 </style>

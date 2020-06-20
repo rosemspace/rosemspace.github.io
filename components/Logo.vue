@@ -10,8 +10,9 @@
 
 <style>
 .RosemLogo {
+  @apply mx-auto;
+
   animation: 0.4s appear;
-  margin: auto;
 }
 
 .RosemLogo,

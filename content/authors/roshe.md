@@ -3,13 +3,14 @@ title: CV
 description: CV.
 ---
 
-![Photo](/_nuxt/content/authors/roshe.png)
+![Photo](/authors/roshe.png)
 
 # Roman Shevchenko
 
 Location: <span>Kyiv, Ukraine</span> <br>
 Phone number: <span>+380976196227</span> <br>
 E-mail:</span> iroman.via@gmail.com <br>
+Telegram: https://t.me/roshetalk <br>
 LinkedIn: https://www.linkedin.com/in/roshejob <br>
 GitHub: https://github.com/roshecode
 
