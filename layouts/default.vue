@@ -1,13 +1,27 @@
 <template>
-  <div>
-    <nuxt />
-  </div>
+  <nuxt />
 </template>
+
+<script>
+import Vue from 'vue'
+
+export default Vue.extend({
+  head: {
+    link: [
+      {
+        href:
+          'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700',
+        rel: 'stylesheet'
+      }
+    ]
+  }
+})
+</script>
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: Montserrat, 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -17,11 +31,19 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  @apply overflow-y-scroll;
+}
+
 *,
 *:before,
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.container {
+  @apply mx-auto;
 }
 
 .button--green {
@@ -51,5 +73,15 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

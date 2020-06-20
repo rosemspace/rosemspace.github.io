@@ -44,9 +44,11 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    // Doc: https://content.nuxtjs.org
+    '@nuxt/content',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/pwa'
   ],
   /*
    ** Axios module configuration
@@ -62,5 +64,8 @@ export default {
      */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     extend(config, ctx) {}
+  },
+  content: {
+    // Options
   }
 }

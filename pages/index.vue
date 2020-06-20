@@ -9,16 +9,10 @@
         Rosem packages website
       </h2>
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
+        <nuxt-link to="/documentation" class="button--green"
+          >Documentation</nuxt-link
         >
-          GitHub
-        </a>
+        <nuxt-link to="/cv" class="button--grey">CV</nuxt-link>
       </div>
     </div>
   </div>
@@ -29,25 +23,21 @@ import Vue from 'vue'
 import Logo from '~/components/Logo.vue'
 
 export default Vue.extend({
+  transition: 'fade',
   components: {
     Logo
+  },
+  async asyncData({ $content }) {
+    const document = await $content('cv').fetch()
+
+    return { document }
   }
 })
 </script>
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
+<style scoped>
 .container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  @apply min-h-screen flex justify-center items-center text-center;
 }
 
 .title {
