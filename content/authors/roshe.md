@@ -3,7 +3,7 @@ title: CV
 description: CV.
 ---
 
-![Photo](/_nuxt/content/photo.png)
+![Photo](/_nuxt/content/authors/roshe.png)
 
 # Roman Shevchenko
 

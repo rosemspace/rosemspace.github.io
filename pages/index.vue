@@ -1,64 +1,51 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        rosem
-      </h1>
-      <h2 class="subtitle">
-        Rosem packages website
-      </h2>
-      <div class="links">
-        <nuxt-link to="/documentation" class="button--green"
-          >Documentation</nuxt-link
-        >
-        <nuxt-link to="/cv" class="button--grey">CV</nuxt-link>
-      </div>
+  <main class="container">
+    <div class="bg">
+      <img src="~assets/bg.jpg" alt="Background image" />
     </div>
-  </div>
+    <NuxtChild />
+  </main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import Logo from '~/components/Logo.vue'
 
 export default Vue.extend({
-  transition: 'fade',
-  components: {
-    Logo
-  },
-  async asyncData({ $content }) {
-    const document = await $content('cv').fetch()
-
-    return { document }
-  }
+  transition: 'fade'
 })
 </script>
 
 <style scoped>
 .container {
-  @apply min-h-screen flex justify-center items-center text-center;
+  @apply flex justify-center items-center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+main {
+  position: relative;
+  min-height: calc(100vh - var(--menu-height));
+}
+
+.bg {
+  position: absolute;
+
+  /* nav height */
+  top: -80px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
   display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+  overflow: hidden;
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  & > img {
+    width: 100%;
+    /*height: 100%;*/
+    min-height: 100%;
+    filter: blur(14px);
+    image-rendering: pixelated;
+    object-fit: cover;
+    /*object-position: top;*/
+    transform: scale(1.1) translateY(3%);
+  }
 }
 </style>

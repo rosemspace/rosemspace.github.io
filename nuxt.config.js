@@ -17,13 +17,20 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   /*
+   ** Customize the router
+   */
+  router: {
+    linkActiveClass: 'link-active',
+    linkExactActiveClass: 'link-exact-active'
+  },
+  /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~assets/css/main.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -48,6 +55,7 @@ export default {
     '@nuxt/content',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    // Doc: https://pwa.nuxtjs.org
     '@nuxtjs/pwa'
   ],
   /*

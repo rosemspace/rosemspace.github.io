@@ -1,9 +1,6 @@
 <template>
-  <div class="page">
-    <div class="container">
-      <nuxt-link class="back" to="/">Back</nuxt-link>
-      <nuxt-content class="content" :document="document" />
-    </div>
+  <div class="container">
+    <nuxt-content class="content" :document="document" />
   </div>
 </template>
 
@@ -18,8 +15,13 @@ export default Vue.extend({
     // eslint-disable-next-line vue/no-unused-components
     ContentImg
   },
-  async asyncData({ $content, params }: Context): Promise<object | void> {
-    const document = await $content(params.slug ?? 'index').fetch()
+  async asyncData({
+    $content,
+    route: { path }
+  }: Context): Promise<object | void> {
+    const document = await $content(
+      path === '/' ? 'index' : path.slice(1)
+    ).fetch()
 
     return { document }
   },
@@ -57,17 +59,15 @@ export default Vue.extend({
   [id^='platforms'],
   [id^='tools'];
 
-.page {
-  @apply bg-gray-400;
-}
-
 .container,
 .content {
-  @apply max-w-3xl;
+  @apply max-w-4xl;
 }
 
 .content {
-  @apply flow-root max-w-3xl mx-auto pt-2 px-20 pb-16 bg-white;
+  @apply flow-root mx-auto pt-2 px-20 pb-16 bg-white;
+
+  max-width: 50rem;
 }
 
 :--photo {

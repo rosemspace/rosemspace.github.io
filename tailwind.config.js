@@ -5,7 +5,14 @@
  * Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
-  theme: {},
+  important: false,
+  theme: {
+    extend: {
+      borderColor: {
+        default: 'currentColor'
+      }
+    }
+  },
   variants: {},
   plugins: []
 }
