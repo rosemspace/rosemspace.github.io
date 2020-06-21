@@ -37,6 +37,7 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics',
   ],
   /*
    ** Nuxt.js modules
@@ -65,6 +66,9 @@ export default {
      */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     extend(config, ctx) {},
+  },
+  googleAnalytics: {
+    id: 'UA-170187104-1',
   },
   router: {
     linkActiveClass: 'link-active',

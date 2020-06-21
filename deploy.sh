@@ -15,6 +15,9 @@ cd dist
 # remove the previous git folder if it still exists for some reasons
 rm -rf .git
 
+# remove the unnecessary README.md file
+rm README.md
+
 # initialize git
 git init
 
