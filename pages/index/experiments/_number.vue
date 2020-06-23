@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1 class="text-3xl font-bold mb-4">Experiment {{ number }}</h1>
+    <h1 class="text-3xl font-bold mb-4">
+      Experiment {{ $route.params.number }}
+    </h1>
     <div class="flex mb-4">
       <div class="w-full">
         <h2 class="text-xl font-bold">Description</h2>
@@ -55,15 +57,14 @@ export default Vue.extend({
     // Must be a number
     return /^\d+$/.test(params.number)
   },
-  async asyncData({ $content }) {
-    const document = await $content('experiments/1').fetch()
+  async asyncData({ $content, route, error }) {
+    const document = await $content(`experiments/${route.params.number}`)
+      .fetch()
+      .catch(() => {
+        error({ statusCode: 404, message: 'Page not found' })
+      })
 
     return { document }
-  },
-  data() {
-    const number = this.$route.params.number
-
-    return { number }
   },
   methods: {
     insertDiv(parentElement: Element) {
@@ -87,7 +88,22 @@ export default Vue.extend({
   },
   head(this: any) {
     return {
-      script: [{ src: `/experiments/${this.number}.js` }],
+      title: this.document.title,
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.document.description,
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          property: 'og:description',
+          content: this.document.description,
+        },
+      ],
+      script: [{ src: `/experiments/${this.$route.params.number}.js` }],
     }
   },
 })

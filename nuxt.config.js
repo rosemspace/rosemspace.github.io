@@ -52,6 +52,9 @@ export default {
     // Doc: https://pwa.nuxtjs.org
     '@nuxtjs/pwa',
   ],
+  generate: {
+    routes: ['/experiments/1'],
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
