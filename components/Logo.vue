@@ -3,8 +3,8 @@
     class="RosemLogo"
     src="/icon.png"
     alt="Rosem logo"
-    width="245"
-    height="180"
+    width="242"
+    height="242"
   />
 </template>
 

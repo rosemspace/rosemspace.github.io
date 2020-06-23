@@ -23,7 +23,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['~assets/css/main.css'],
+  css: [],
   /*
    ** Plugins to load before mounting the App
    */
@@ -56,7 +56,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    credentials: false,
+  },
   /*
    ** Build configuration
    */
@@ -75,7 +77,11 @@ export default {
     linkExactActiveClass: 'link-exact-active',
   },
   content: {
-    // Options
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-darcula.css',
+      },
+    },
   },
   workbox: {
     runtimeCaching: [

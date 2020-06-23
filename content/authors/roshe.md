@@ -17,7 +17,7 @@ GitHub: https://github.com/roshecode
 > It's easier to invent the future than to predict it.
 > <br>- Alan Kay
 
-## Middle PHP / JS Software Developer
+## Middle PHP / Senior JS Software Developer
 
 I like to think in the context of business needs and resources to solve complex
 tasks. Being a Technical Leader and working directly with the client I can

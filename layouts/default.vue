@@ -62,6 +62,7 @@ body {
   @apply text-base;
 
   color: var(--text-color);
+  background-color: #d3babe;
 }
 
 .container {
