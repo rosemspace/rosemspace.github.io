@@ -21,8 +21,9 @@ export default Vue.extend({
 }
 
 main {
-  position: relative;
-  min-height: calc(100vh - var(--menu-height));
+  @apply relative;
+
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
 .bg {

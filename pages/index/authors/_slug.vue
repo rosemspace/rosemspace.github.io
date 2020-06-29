@@ -6,15 +6,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Context } from '@nuxt/types'
 
 export default Vue.extend({
   transition: 'fade',
-  async asyncData({
-    $content,
-    route: { path },
-    error,
-  }: Context): Promise<object | void> {
+  async asyncData({ $content, route: { path }, error }) {
     const document = await $content(path === '/' ? 'index' : path.slice(1))
       .fetch()
       .catch(() => {
@@ -45,27 +40,23 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
-@custom-selector :--content .nuxt-content, .container >>> .nuxt-content;
-@custom-selector :--photo p:first-of-type;
-@custom-selector :--contacts h1 + p;
-@custom-selector :--details-title [id^='magento'], [id^='internal'];
-@custom-selector :--h4-semibold [id*='-automation-'];
-@custom-selector :--h3-grid
-  :--h4-semibold,
-  [id^='general'],
-  [id^='platforms'],
-  [id^='tools'];
+<style src="~/assets/css/content.pcss" lang="postcss"></style>
 
-.container {
-  @apply max-w-4xl;
-}
+<style scoped lang="postcss">
+@custom-selector :--content
+  .nuxt-content-container >>> .nuxt-content,
+  .container >>> .nuxt-content;
+@custom-selector :--photo p:first-child;
+@custom-selector :--contacts h1#roman-shevchenko + p;
+@custom-selector :--grid-h3
+  h3[id^='general'],
+  h3[id^='platforms'],
+  h3[id^='tools'];
+@custom-selector :--soft-h4 h4[id*='-automation-'];
+@custom-selector :--details-title h4[id^='magento'], h4[id^='internal'];
+@custom-selector :--grid-title :--grid-h3, :--soft-h4;
 
 :--content {
-  @apply flow-root mx-auto pt-2 px-20 pb-16 bg-white;
-
-  max-width: 50rem;
-
   & > :--photo {
     @apply m-0;
 
@@ -75,7 +66,7 @@ export default Vue.extend({
   }
 
   & :--contacts,
-  & :--h3-grid + p {
+  & :--grid-title + p {
     @apply grid;
 
     text-indent: initial;
@@ -86,47 +77,19 @@ export default Vue.extend({
     }
   }
 
-  & :--h3-grid + p {
-    @apply grid-cols-2 font-medium uppercase;
-
-    & a,
-    & span {
-      @apply font-normal normal-case;
+  & :--grid-title,
+  & :--details-title {
+    & + p strong {
+      @apply font-medium text-gray-700 uppercase;
     }
   }
 
-  & h1 {
-    @apply text-2xl font-semibold mt-12;
+  & :--grid-title + p {
+    @apply grid-cols-2;
   }
 
-  & h2 {
-    @apply text-xl font-medium uppercase mt-8;
-  }
-
-  & h3 {
-    @apply text-base font-semibold uppercase mt-4 mb-1 border-b border-gray-300;
-  }
-
-  & h4 {
-    @apply text-base font-bold mt-2 mb-1 border-b border-gray-300;
-  }
-
-  & :--h4-semibold {
+  & :--soft-h4 {
     @apply font-semibold;
-  }
-
-  & p,
-  & ul,
-  & ol {
-    @apply text-sm mt-2;
-  }
-
-  & p {
-    text-indent: 1rem;
-
-    &:first-letter {
-      @apply text-lg font-medium leading-none;
-    }
   }
 
   & :--details-title + p {
@@ -137,63 +100,12 @@ export default Vue.extend({
 
       font-weight: inherit;
     }
-
-    & strong {
-      @apply font-medium uppercase;
-    }
-  }
-
-  & ul,
-  & ol {
-    @apply pl-8;
-  }
-
-  & ul {
-    @apply list-disc;
-  }
-
-  & ol {
-    @apply list-decimal;
-  }
-
-  & a {
-    @apply underline;
-  }
-
-  & blockquote {
-    @apply italic text-center mt-8;
-
-    & p:first-letter {
-      @apply text-sm font-normal;
-    }
-  }
-
-  & table {
-    @apply w-full text-left mt-2;
-  }
-
-  & th,
-  & td {
-    @apply px-3 py-1;
-  }
-
-  & th {
-    @apply font-semibold bg-gray-100;
   }
 }
 
 @media print {
-  :--content {
-    @apply p-0;
-
-    & :--photo img,
-    & h1 {
-      @apply mt-0;
-    }
+  :--content :--photo img {
+    @apply mt-0;
   }
-}
-
-@page {
-  margin: 20mm;
 }
 </style>

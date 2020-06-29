@@ -1,0 +1,119 @@
+@custom-selector :--content
+  .nuxt-content-container > .nuxt-content,
+  .container > .nuxt-content;
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+:--content {
+  @apply flow-root mx-auto pt-2 px-20 pb-16 text-gray-600 bg-white;
+
+  max-width: 50rem;
+
+  & :--heading {
+    @apply text-gray-700 -ml-6 pl-6;
+
+    &:hover {
+      & > a::before {
+        @apply opacity-100 transform -translate-x-6;
+      }
+    }
+
+    & > a {
+      &::before {
+        @apply text-pink-300 font-bold pr-1 absolute opacity-0 transition ease-in duration-100;
+
+        content: "#";
+      }
+    }
+  }
+
+  & h1 {
+    @apply text-2xl font-semibold mt-12;
+  }
+
+  & h2 {
+    @apply text-xl font-medium uppercase mt-8;
+  }
+
+  & h3,
+  & h4 {
+    &:after {
+      @apply block w-full border-b border-gray-300;
+
+      content: '';
+    }
+  }
+
+  & h3 {
+    @apply text-base font-semibold uppercase mt-4 mb-1;
+  }
+
+  & h4 {
+    @apply text-base font-bold mt-2 mb-1;
+  }
+
+  & p,
+  & ul,
+  & ol {
+    @apply text-sm mt-2;
+  }
+
+  & p {
+    text-indent: 1rem;
+
+    &:first-letter {
+      @apply text-lg font-medium leading-none;
+    }
+  }
+
+  & ul,
+  & ol {
+    @apply pl-8;
+  }
+
+  & ul {
+    @apply list-disc;
+  }
+
+  & ol {
+    @apply list-decimal;
+  }
+
+  & a {
+    @apply underline;
+  }
+
+  & blockquote {
+    @apply italic text-center mt-8;
+
+    & p:first-letter {
+      @apply text-sm font-normal;
+    }
+  }
+
+  & table {
+    @apply w-full text-left mt-2;
+  }
+
+  & th,
+  & td {
+    @apply px-3 py-1;
+  }
+
+  & th {
+    @apply font-semibold bg-gray-100;
+  }
+}
+
+@media print {
+  :--content {
+    @apply p-0;
+
+    & h1 {
+      @apply mt-0;
+    }
+  }
+}
+
+@page {
+  margin: 20mm;
+}

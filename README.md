@@ -39,6 +39,7 @@ The following DNS configuration should be used for your custom domain:
 
 If you faced with some troubles (no SSL certificate or the site is not loading):
 - verify your DNS configuration
+    - [the parking A record should be removed](https://github.community/t/certificate-request-error-is-persistent-tls-certificate-cant-be-provisioned/11008)
 - remove your custom domain in repository settings and apply it again
 - wait some time (up to 24 hours)
 - or refer to this [troubleshooting tips](https://help.github.com/en/github/working-with-github-pages/troubleshooting-custom-domains-and-github-pages)
@@ -53,27 +54,22 @@ Open the `deploy.sh` file:
 Run the following command:
 
 ```shell script
-sh deploy.sh
+./deploy.sh
 ```
 
 It will run the `npm run build` command and push forcibly all compiled files in `dist` folder to `master` branch.
 
 ## Work in progress
 
+- PWA content updating
 - Shorthand terminologies
-- Shorthand terminology priority
-    1. Must know
-    2. Good to know
-    3. Advanced / complex
-    4. Specific (ex: Windows or Unix only)
-    5. Old / deprecated
-- `vue-cli` upgrade
-- Prerenderer
-- PWA support (favicon)
-- Google Analytics
+    - Shorthand terminology priority
+        1. Must know
+        2. Good to know
+        3. Advanced / complex
+        4. Specific (ex: Windows or Unix only)
+        5. Old / deprecated
 - Unsplash backgrounds
     - https://unsplash.com/@paulfiedler
     - https://source.unsplash.com/collection/317099/photos?page=12&per_page=26&order_by=latest
-- Profile CV
-    - use [these diagrams](https://github.com/kamranahmedse/developer-roadmap) to represent skills
 - Packages documentation

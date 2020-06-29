@@ -1,6 +1,11 @@
 /* eslint-disable */
-;(function(globalThis, undefined) {
+export default
+function(globalThis, undefined) {
   'use strict';
+
+  if (!globalThis || !(globalThis instanceof globalThis.Window)) {
+    return;
+  }
 
   patchNativeMethods.NATIVE_PREFIX = '__native_';
 
@@ -138,4 +143,4 @@
     },
     patchDivElements
   );
-})(self);
+};

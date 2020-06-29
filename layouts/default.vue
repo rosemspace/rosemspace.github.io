@@ -2,16 +2,19 @@
   <div>
     <RosemNavigation />
     <nuxt />
+    <RosemFooter />
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
 import RosemNavigation from '~/components/Navigation.vue'
+import RosemFooter from '~/components/Footer.vue'
 
 export default Vue.extend({
   components: {
     RosemNavigation,
+    RosemFooter,
   },
   head: {
     link: [
@@ -44,7 +47,8 @@ export default Vue.extend({
   /*--text-color: #232e3e;*/
   --text-color: #2c3e50;
   --neutral-color: #99959b;
-  --menu-height: 80px;
+  --header-height: 80px;
+  --footer-height: 24px;
 }
 
 ::selection {

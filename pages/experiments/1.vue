@@ -1,8 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="text-3xl font-bold mb-4">
-      Experiment {{ $route.params.number }}
-    </h1>
+    <h1 class="text-3xl font-bold mb-4">Experiment 1</h1>
     <div class="flex mb-4">
       <div class="w-full">
         <h2 class="text-xl font-bold">Description</h2>
@@ -50,21 +48,21 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import script from '~/assets/experiments/1.js'
 
 export default Vue.extend({
   transition: 'fade',
-  validate({ params }) {
-    // Must be a number
-    return /^\d+$/.test(params.number)
-  },
-  async asyncData({ $content, route, error }) {
-    const document = await $content(`experiments/${route.params.number}`)
+  async asyncData({ $content, error }) {
+    const document = await $content(`experiments/1`)
       .fetch()
       .catch(() => {
         error({ statusCode: 404, message: 'Page not found' })
       })
 
     return { document }
+  },
+  beforeMount() {
+    script(window)
   },
   methods: {
     insertDiv(parentElement: Element) {
@@ -76,13 +74,13 @@ export default Vue.extend({
     insertIframe(parentElement: Element) {
       const div = document.createElement('div')
 
-      div.innerHTML = `DIV element 1<div>DIV element 2<iframe src="/iframe" frameborder="0" width="100%" height="500"></iframe></div>`
+      div.innerHTML = `DIV element 1<div>DIV element 2<iframe src="/experiments/iframe" frameborder="0" width="100%" height="500"></iframe></div>`
       parentElement.appendChild(div)
     },
     insertIframe3rd(parentElement: Element) {
       const div = document.createElement('div')
 
-      div.innerHTML = `DIV element 1<div>DIV element 2<iframe src="/iframe3rd" frameborder="0" width="100%" height="500"></iframe></div>`
+      div.innerHTML = `DIV element 1<div>DIV element 2<iframe src="/experiments/iframe3rd" frameborder="0" width="100%" height="500"></iframe></div>`
       parentElement.appendChild(div)
     },
   },
@@ -103,14 +101,23 @@ export default Vue.extend({
           content: this.document.description,
         },
       ],
-      script: [{ src: `/experiments/${this.$route.params.number}.js` }],
     }
   },
 })
 </script>
 
 <style scoped>
+@custom-selector :--content
+  .nuxt-content-container >>> .nuxt-content,
+  .container >>> .nuxt-content;
+
 .container {
-  @apply block self-start mx-6 px-6 py-4 bg-orange-200;
+  @apply block w-auto self-start mx-6 px-6 py-4 bg-orange-200;
+}
+
+:--content {
+  @apply p-0;
+
+  background: none;
 }
 </style>

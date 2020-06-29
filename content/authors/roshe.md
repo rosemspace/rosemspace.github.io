@@ -46,44 +46,44 @@ and organization, information technology and services.
 
 ### General
 
-Programming languages: <span>JavaScript, TypeScript, PHP, C#, SQL</span><br>
-Testing frameworks: <span>Jest, Cypress, PHPUnit</span><br>
-Web servers: <span>Apache, Nginx</span><br>
-Operating systems: <span>\*nix, Microsoft Windows</span><br>
+**Programming languages:** JavaScript, TypeScript, PHP, C#, SQL<br>
+**Testing frameworks:** Jest, Cypress, PHPUnit<br>
+**Web servers:** Apache, Nginx<br>
+**Operating systems:** *nix, Microsoft Windows<br>
 
 ### Platforms, Technologies, and Programming Skills
 
-Network technologies: <span>HTTPS, FTP, Web Services, Varnish</span><br>
-Technologies: <span>AJAX, XML, HTML, CSS, PWA, Node.js, SEO</span><br>
-APIs: <span>GraphQL, REST, SOAP</span><br>
-Package managers: <span>Composer, npm, yarn</span><br>
-CSS pre-processors: <span>PostCSS, SCSS, LESS</span><br>
-JavaScript frameworks and libraries: <span>Vue.js, Vuex, Vue CLI, Nuxt, Vite, Lodash, Underscore, jQuery, Prototype</span><br>
-PHP frameworks and libraries: <span>Laravel, Symfony, Laminas, Doctrine</span><br>
-CMS / CMF: <span>Magento 2 / 1, Drupal 7, WordPress</span><br>
-Relational Database Management Systems: <span>MySQL (InnoDB), MariaDB, PostgreSQL, SQLite, MongoDB</span><br>
-Virtualization environments: <span>Docker, Vagrant, LXC</span><br>
-Profiling and debugging tools: <span>Xdebug, xprofiler</span><br>
+**Network technologies:** HTTPS, FTP, Web Services, Varnish<br>
+**Technologies:** AJAX, XML, HTML, CSS, PWA, Node.js, SEO<br>
+**APIs:** GraphQL, REST, SOAP<br>
+**Package managers:** Composer, npm, yarn<br>
+**CSS pre-processors:** PostCSS, SCSS, LESS<br>
+**JavaScript frameworks and libraries:** Vue.js, Vuex, Vue CLI, Nuxt, Vite, Lodash, Underscore, jQuery, Prototype<br>
+**PHP frameworks and libraries:** Laravel, Symfony, Laminas, Doctrine<br>
+**CMS / CMF:** Magento 2 / 1, Drupal 7, WordPress<br>
+**Relational Database Management Systems:** MySQL (InnoDB), MariaDB, PostgreSQL, SQLite, MongoDB<br>
+**Virtualization environments:** Docker, Vagrant, LXC<br>
+**Profiling and debugging tools:** Xdebug, xprofiler<br>
 
 ### Tools
 
-Integrated Development Environments: <span>PhpStorm, Visual Studio Code, Sublime Text</span><br>
-Database management: <span>DataGrip, PHPMyAdmin</span><br>
-Source control systems: <span>Git (GitHub, GitLab, Bitbucket)</span><br>
-Project management: <span>JIRA, Confluence, Redmine</span><br>
+**Integrated Development Environments:** PhpStorm, Visual Studio Code, Sublime Text<br>
+**Database management:** DataGrip, PHPMyAdmin<br>
+**Source control systems:** Git (GitHub, GitLab, Bitbucket)<br>
+**Project management:** JIRA, Confluence, Redmine<br>
 
 #### JavaScript Automation and Build Tools
 
-Monorepo management: <span>Lerna, Yarn workspaces</span><br>
-Compilers, linters and formatters: <span>Babel, ESLint, Prettier, stylelint</span><br>
-Module Bundlers: <span>Webpack, Parcel, Rollup</span><br>
-Module Loaders: <span>ESM, CommonJS, RequireJS, AMD, UMD</span><br>
-Task Runners: <span>Gulp, Grunt</span><br>
+**Monorepo management:** Lerna, Yarn workspaces<br>
+**Compilers, linters and formatters:** Babel, ESLint, Prettier, stylelint<br>
+**Module Bundlers:** Webpack, Parcel, Rollup<br>
+**Module Loaders:** ESM, CommonJS, RequireJS, AMD, UMD<br>
+**Task Runners:** Gulp, Grunt<br>
 
 #### PHP Automation and Build Tools
 
-Monorepo management: <span>Symplify Monorepo Builder</span><br>
-Linters and formatters: <span>PHP CodeSniffer, PHP CS Fixer, Rector</span><br>
+**Monorepo management:** Symplify Monorepo Builder<br>
+**Linters and formatters:** PHP CodeSniffer, PHP CS Fixer, Rector<br>
 
 ## Experience (4+ years)
 
