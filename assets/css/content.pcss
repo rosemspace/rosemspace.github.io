@@ -4,7 +4,7 @@
 @custom-selector :--heading h1, h2, h3, h4, h5, h6;
 
 :--content {
-  @apply flow-root mx-auto pt-2 px-20 pb-16 text-gray-600 bg-white;
+  @apply flow-root mx-auto p-4 text-gray-600 bg-white;
 
   max-width: 50rem;
 
@@ -21,13 +21,13 @@
       &::before {
         @apply text-pink-300 font-bold pr-1 absolute opacity-0 transition ease-in duration-100;
 
-        content: "#";
+        content: '#';
       }
     }
   }
 
   & h1 {
-    @apply text-2xl font-semibold mt-12;
+    @apply text-2xl font-semibold mt-2;
   }
 
   & h2 {
@@ -60,7 +60,7 @@
   & p {
     text-indent: 1rem;
 
-    &:first-letter {
+    &::first-letter {
       @apply text-lg font-medium leading-none;
     }
   }
@@ -85,13 +85,13 @@
   & blockquote {
     @apply italic text-center mt-8;
 
-    & p:first-letter {
+    & p::first-letter {
       @apply text-sm font-normal;
     }
   }
 
   & table {
-    @apply w-full text-left mt-2;
+    @apply flex w-full text-left mt-2;
   }
 
   & th,
@@ -101,6 +101,28 @@
 
   & th {
     @apply font-semibold bg-gray-100;
+  }
+
+  & tr {
+    @apply flex flex-col;
+  }
+}
+
+@screen md {
+  :--content {
+    @apply pt-2 px-20 pb-16;
+
+    & h1 {
+      @apply mt-12;
+    }
+
+    & table {
+      @apply table;
+    }
+
+    & tr {
+      @apply table-row;
+    }
   }
 }
 

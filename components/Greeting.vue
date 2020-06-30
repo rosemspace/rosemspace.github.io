@@ -17,7 +17,7 @@
       </p>
       <ul class="social">
         <li v-for="{ title, url } in links" :key="url">
-          <a :href="url" target="_blank">{{ title }}</a>
+          <a :href="url" target="_blank" rel="noopener">{{ title }}</a>
         </li>
       </ul>
       <p>
@@ -27,7 +27,10 @@
         businesses.<br />
         Thanks for inspiration to my <span class="love">❤</span>
         <strong
-          ><a href="https://rosem-portfolio.netlify.com" target="_blank"
+          ><a
+            href="https://rosem-portfolio.netlify.com"
+            target="_blank"
+            rel="noopener"
             >Romanna Semenyshyn</a
           ></strong
         >.
@@ -70,9 +73,8 @@ export default {
 }
 
 .hello {
-  @apply max-w-5xl;
+  @apply mx-auto my-5;
 
-  margin: 20px auto;
   padding: 0.1px 20px;
   /*background: radial-gradient(#415c8a8f, transparent 105%);*/
 
@@ -88,20 +90,13 @@ export default {
 }
 
 .social {
-  @apply text-xs;
+  @apply flex flex-wrap justify-center list-none p-0 m-2;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0;
-  margin: 10px;
-  list-style: none;
   color: #e8f2ff;
   background: linear-gradient(to right, transparent, #9b71a545, transparent);
 
   & li {
-    position: relative;
-    margin: 0 12px;
+    @apply relative mx-3;
 
     &:hover {
       &::before {
@@ -117,14 +112,14 @@ export default {
 
     &::before,
     &:last-child::after {
+      @apply absolute pointer-events-none;
+
       content: '●';
-      pointer-events: none;
       /*text-align: end;*/
       /*unicode-bidi: isolate;*/
       /*font-variant-numeric: tabular-nums;*/
-      position: absolute;
       right: calc(100% + 8px);
-      top: 4px;
+      top: 0.8rem;
       transition: right 0.1s;
     }
 
@@ -136,7 +131,8 @@ export default {
       }
 
       &::after {
-        right: auto;
+        @apply right-auto;
+
         left: calc(100% + 8px);
         transition: left 0.1s;
       }
@@ -144,9 +140,8 @@ export default {
   }
 
   & a {
-    display: block;
-    padding: 4px;
-    border-bottom: solid 1px transparent;
+    @apply block p-3;
+
     /*color: #e4f9ff;*/
     /*font-weight: 600;*/
     text-decoration: none;
@@ -178,7 +173,7 @@ export default {
 }
 
 .r {
-  position: relative;
+  @apply relative;
 
   &::after {
     @apply absolute block rounded-full border w-16 h-16;
@@ -192,9 +187,8 @@ export default {
 }
 
 .o {
-  position: relative;
+  @apply relative text-transparent;
   /*top: 8px;*/
-  color: transparent;
   /* Move the letter outside the screen instead of transparency to keep currentColor value */
   /*display: inline-block;*/
   /*text-indent: -99999%;*/

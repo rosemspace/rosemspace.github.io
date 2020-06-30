@@ -52,6 +52,7 @@ export default Vue.extend({
   h3[id^='general'],
   h3[id^='platforms'],
   h3[id^='tools'];
+@custom-selector :--grid-h4 h4:not(#evolution);
 @custom-selector :--soft-h4 h4[id*='-automation-'];
 @custom-selector :--details-title h4[id^='magento'], h4[id^='internal'];
 @custom-selector :--grid-title :--grid-h3, :--soft-h4;
@@ -61,7 +62,7 @@ export default Vue.extend({
     @apply m-0;
 
     & img {
-      @apply float-right mt-10 w-1/4 rounded-full;
+      @apply float-right mt-2 w-1/4 rounded-full;
     }
   }
 
@@ -70,7 +71,7 @@ export default Vue.extend({
     @apply grid;
 
     text-indent: initial;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
 
     & br {
       @apply hidden;
@@ -85,7 +86,11 @@ export default Vue.extend({
   }
 
   & :--grid-title + p {
-    @apply grid-cols-2;
+    @apply grid-cols-1;
+  }
+
+  & :--grid-h4 + p {
+    @apply grid;
   }
 
   & :--soft-h4 {
@@ -95,10 +100,33 @@ export default Vue.extend({
   & :--details-title + p {
     text-indent: initial;
 
-    &:first-letter {
+    &::first-letter {
       @apply text-sm;
 
       font-weight: inherit;
+    }
+  }
+}
+
+@screen md {
+  :--content {
+    & > :--photo {
+      & img {
+        @apply mt-10;
+      }
+    }
+
+    & :--contacts,
+    & :--grid-title + p {
+      grid-template-columns: auto auto;
+    }
+
+    & :--grid-title + p {
+      @apply grid-cols-2;
+    }
+
+    & :--grid-h4 + p {
+      @apply block;
     }
   }
 }
