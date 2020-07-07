@@ -8,23 +8,17 @@
 
 <script>
 import Vue from 'vue'
-import RosemNavigation from '~/components/Navigation.vue'
-import RosemFooter from '~/components/Footer.vue'
+import RosemFooter from '@/components/Footer.vue'
+import RosemNavigation from '@/components/Navigation.vue'
+import { Montserrat } from '@/data/fonts'
+import { preloadCSS } from '@/utils/css'
 
 export default Vue.extend({
   components: {
     RosemNavigation,
     RosemFooter,
   },
-  head: {
-    link: [
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap',
-      },
-    ],
-  },
+  head: preloadCSS({}, [Montserrat]),
 })
 </script>
 
@@ -36,10 +30,11 @@ export default Vue.extend({
   --font-size: 16px;
 
   /* Colors */
-  --brand-color: #ffb05f;
+  /*--brand-color: #ffc3f3;*/
+  --brand-color: #e6b576;
   /*--brand-color: #fde;*/
   /*--brand-color: #fce;*/
-  --domain-color: #fff2c0;
+  /*--domain-color: #fff2c0;*/
   --main-color: #ffb0e7;
   --secondary-color: #ffeeb0;
   /*--text-color: #294766;*/
@@ -52,8 +47,9 @@ export default Vue.extend({
 }
 
 ::selection {
+  @apply text-white;
+
   background-color: rgba(211, 184, 188, 0.4);
-  color: white;
 }
 
 html {
@@ -66,7 +62,10 @@ body {
   @apply text-base;
 
   color: var(--text-color);
-  background-color: #d3babe;
+  /*background-color: #d3babe;*/
+  /*background: #282a35 linear-gradient(#d3babe, #282a35);*/
+  background: #282a35 linear-gradient(#d3babe, #373e65);
+  /*background: #282a35 linear-gradient(#0e0414, #373e65);*/
 }
 
 .container {
@@ -80,6 +79,6 @@ body {
 
 .fade-enter,
 .fade-leave-to {
-  opacity: 0;
+  @apply opacity-0;
 }
 </style>

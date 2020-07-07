@@ -27,25 +27,18 @@ main {
 }
 
 .bg {
-  @apply fixed;
+  @apply fixed block overflow-hidden right-0 bottom-0 left-0;
 
   /* nav height */
   top: -80px;
-  right: 0;
-  bottom: 0;
-  left: 0;
   z-index: -1;
-  display: block;
-  overflow: hidden;
+  filter: opacity(0.5);
 
   & > img {
-    width: 100%;
-    /*height: 100%;*/
-    min-height: 100%;
-    filter: blur(14px);
+    @apply w-full min-h-full object-cover;
+
     image-rendering: pixelated;
-    object-fit: cover;
-    /*object-position: top;*/
+    filter: blur(20px);
     transform: scale(1.1) translateY(3%);
   }
 }

@@ -6,7 +6,8 @@
       <h1 class="title">
         <span class="brand"
           ><span class="r">R</span><span class="o">o</span>sem</span
-        ><wbr /><span class="domain"><span class="dot">.</span>space</span>
+        >
+        Space
       </h1>
       <!--      <h1 class="title"><span class="brand"><span class="r">R</span>oshe</span></h1>-->
       <p>
@@ -40,8 +41,8 @@
 </template>
 
 <script>
-import links from '../data/links/roshe.json'
-import RosemLogo from '~/components/Logo.vue'
+import RosemLogo from '@/components/Logo.vue'
+import links from '@/data/links/roshe.json'
 
 export default {
   components: {
@@ -73,19 +74,16 @@ export default {
 }
 
 .hello {
-  @apply mx-auto my-5;
+  @apply flow-root mx-auto my-5 px-5;
 
-  padding: 0.1px 20px;
   /*background: radial-gradient(#415c8a8f, transparent 105%);*/
 
   & p {
-    margin: 30px 0;
-    /*color: var(--secondary-color);*/
-    color: white;
+    @apply my-8 text-white;
   }
 
   & strong {
-    font-weight: bold;
+    @apply font-bold;
   }
 }
 
@@ -149,10 +147,10 @@ export default {
 }
 
 .title {
-  @apply text-5xl font-bold my-8;
+  @apply text-5xl font-bold uppercase my-8;
 
   /*color: var(--secondary-color);*/
-  color: var(--domain-color);
+  color: #fff2c0;
   /*color: #ffca09;*/
 
   &:hover {
@@ -194,7 +192,7 @@ export default {
   /*text-indent: -99999%;*/
 
   &::after {
-    @apply absolute block w-8 h-8 rounded-full border;
+    @apply absolute block w-8 h-8 rounded-full border border-2;
 
     content: '';
     top: 1.8rem;

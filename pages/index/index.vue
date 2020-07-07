@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import RosemGreeting from '~/components/Greeting.vue'
+import RosemGreeting from '@/components/Greeting.vue'
 
 export default Vue.extend({
   transition: 'fade',

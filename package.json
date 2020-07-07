@@ -1,7 +1,7 @@
 {
-  "name": "rosem-space",
+  "name": "rosem.space",
   "version": "1.0.0",
-  "description": "Rosem packages website",
+  "description": "Rosem packages documentation and playground",
   "author": "Roman Shevchenko",
   "private": true,
   "scripts": {

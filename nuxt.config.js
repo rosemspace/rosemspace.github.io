@@ -1,12 +1,17 @@
 export default {
   mode: 'universal',
+  globalName: 'rosem',
+  globals: {
+    readyCallback: 'onNuxtReady', // fix for the content module
+    loadedCallback: '_onNuxtLoaded',
+  },
   /*
    ** Headers of the page
    */
   head: {
     title: (process.env.npm_package_name || '')
       .replace(
-        /^\w|-\w/g,
+        /^\w|[-.]\w/g,
         (match) => ` ${match[match.length - 1].toUpperCase()}`
       )
       .trimStart(),
@@ -19,12 +24,24 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.googleapis.com',
+        crossorigin: 'anonymous',
+      },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#fbf' },
   /*
    ** Global CSS
    */
@@ -59,6 +76,8 @@ export default {
   ],
   generate: {
     routes: ['/experiments/1'],
+    fallback: true, // for static hosting
+    interval: 50,
   },
   /*
    ** Axios module configuration
@@ -71,6 +90,7 @@ export default {
    ** Build configuration
    */
   build: {
+    publicPath: '/media',
     /*
      ** You can extend webpack config here
      */
@@ -91,9 +111,16 @@ export default {
       },
     },
   },
-  workbox: {
-    runtimeCaching: [
-      { urlPattern: 'https://fonts.(googleapis|gstatic).com/.*' },
-    ],
+  pwa: {
+    manifest: {
+      background_color: '#333',
+      name: 'Rosem Space',
+      short_name: 'Rosem',
+    },
+    workbox: {
+      runtimeCaching: [
+        { urlPattern: 'https://fonts.(googleapis|gstatic).com/.*' },
+      ],
+    },
   },
 }

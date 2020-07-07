@@ -33,11 +33,12 @@
 
 @keyframes appear {
   0% {
-    opacity: 0;
+    @apply opacity-0;
+
     transform: scale(1.1);
   }
   100% {
-    opacity: 1;
+    @apply opacity-100;
   }
 }
 </style>
