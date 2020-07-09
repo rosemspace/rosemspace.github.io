@@ -1,5 +1,5 @@
 <template>
-  <iframe :srcdoc="html" frameborder="0" width="100%" height="500"></iframe>
+  <iframe :srcdoc="html" width="100%" height="500"></iframe>
 </template>
 
 <script lang="ts">
@@ -23,7 +23,7 @@ export default Vue.extend({
     insertIframe(parentElement: Element) {
       const div = document.createElement('div')
 
-      div.innerHTML = `DIV element 1<div>DIV element 2<iframe src="/experiments/iframe" frameborder="0" width="100%"></iframe></div>`
+      div.innerHTML = `DIV element 1<div>DIV element 2<iframe src="/experiments/iframe" width="100%"></iframe></div>`
       parentElement.appendChild(div)
     },
   },

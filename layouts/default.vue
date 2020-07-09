@@ -1,7 +1,12 @@
 <template>
   <div>
     <RosemNavigation />
-    <nuxt />
+    <main class="container">
+      <div class="bg">
+        <img src="~assets/images/bg.jpg" alt="Background image" />
+      </div>
+      <Nuxt />
+    </main>
     <RosemFooter />
   </div>
 </template>
@@ -10,75 +15,46 @@
 import Vue from 'vue'
 import RosemFooter from '@/components/Footer.vue'
 import RosemNavigation from '@/components/Navigation.vue'
-import { preloadGoogleFonts } from '@/utils/css'
 
 export default Vue.extend({
   components: {
     RosemNavigation,
     RosemFooter,
   },
-  head: preloadGoogleFonts({}, [{ family: 'Montserrat' }]),
 })
 </script>
 
-<style>
-:root {
-  /* Fonts */
-  --font-family: Montserrat, 'Source Sans Pro', -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-size: 16px;
-
-  /* Colors */
-  /*--brand-color: #ffc3f3;*/
-  --brand-color: #e6b576;
-  /*--brand-color: #fde;*/
-  /*--brand-color: #fce;*/
-  /*--domain-color: #fff2c0;*/
-  --main-color: #ffb0e7;
-  --secondary-color: #ffeeb0;
-  /*--text-color: #294766;*/
-  /*--text-color: #192433;*/
-  /*--text-color: #232e3e;*/
-  --text-color: #2c3e50;
-  --neutral-color: #99959b;
-  --header-height: 80px;
-  --footer-height: 24px;
-}
-
-::selection {
-  @apply text-white;
-
-  background-color: rgba(211, 184, 188, 0.8);
-}
-
-html {
-  font-family: var(--font-family);
-  font-size: var(--font-size);
-  word-spacing: 1px;
-}
-
-body {
-  @apply text-base;
-
-  color: var(--text-color);
-  /*background-color: #d3babe;*/
-  /*background: #282a35 linear-gradient(#d3babe, #282a35);*/
-  /*background: #282a35 linear-gradient(#d3babe, #373e65);*/
-  background: #282a35 linear-gradient(#756f88, #373e65);
-  /*background: #282a35 linear-gradient(#0e0414, #373e65);*/
-}
-
+<style scoped>
 .container {
-  @apply max-w-full mx-auto;
+  @apply flex justify-center items-center;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.25s;
+main {
+  @apply relative;
+
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
 }
 
-.fade-enter,
-.fade-leave-to {
-  @apply opacity-0;
+.bg {
+  @apply fixed block overflow-hidden right-0 bottom-0 left-0;
+
+  /* nav height */
+  top: -80px;
+  z-index: -1;
+  filter: opacity(0.75);
+
+  & > img {
+    @apply w-full min-h-full object-cover;
+
+    image-rendering: pixelated;
+    filter: blur(20px);
+    transform: scale(1.1) translateY(3%);
+  }
+}
+
+@media print {
+  .bg {
+    @apply hidden;
+  }
 }
 </style>

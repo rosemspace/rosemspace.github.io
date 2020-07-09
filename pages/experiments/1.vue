@@ -40,7 +40,7 @@
           insert the final <code>HTML</code> in <code>srcdoc</code> attribute
           (or encoded <code>HTML</code> in <code>src</code> attribute).
         </p>
-        <nuxt-content :document="document" />
+        <NuxtContent :document="document" />
       </div>
     </div>
   </div>

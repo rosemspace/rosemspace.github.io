@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <nuxt-link to="/legal/privacy">Privacy Policy</nuxt-link>
+    <NuxtLink to="/legal/privacy">Privacy Policy</NuxtLink>
   </footer>
 </template>
 

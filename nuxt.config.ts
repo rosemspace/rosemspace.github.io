@@ -2,18 +2,16 @@ import { resolve } from 'path'
 import { NuxtConfig } from '@nuxt/types'
 import { normalizeTitle } from './utils/content'
 
-// const locale = process.env.NUXT_LOCALE || 'en'
+// const isProduction = process.env.NODE_ENV === 'production'
+const baseURL = process.env.BASE_URL || 'https://rosem.space'
+const locale = process.env.ROSEM_LOCALE || 'en'
 
 const config: NuxtConfig = {
   mode: 'universal',
   target: 'static',
-  globalName: 'rosem',
-  globals: {
-    readyCallback: () => 'onNuxtReady', // fix for the content module
-    loadedCallback: () => '_onNuxtLoaded',
-  },
-  privateRuntimeConfig: {
-    baseURL: 'https://rosem.space',
+  publicRuntimeConfig: {
+    baseURL,
+    locale,
   },
   /*
    ** Headers of the page
@@ -50,7 +48,7 @@ const config: NuxtConfig = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~assets/css/main.css', '~assets/css/theme.pcss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -74,23 +72,9 @@ const config: NuxtConfig = {
     '@nuxt/http',
     // Doc: https://content.nuxtjs.org
     '@nuxt/content',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
     // Doc: https://pwa.nuxtjs.org
     '@nuxtjs/pwa',
   ],
-  generate: {
-    routes: ['/experiments/1'],
-    fallback: true, // for static hosting
-    interval: 50,
-  },
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {
-    credentials: false,
-  },
   /*
    ** Build configuration
    */
@@ -103,8 +87,14 @@ const config: NuxtConfig = {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     extend(config, ctx) {},
   },
-  googleAnalytics: {
-    id: 'UA-170187104-1',
+  /*
+   ** Generation configuration
+   */
+  generate: {
+    // @ts-ignore
+    exclude: [''],
+    routes: ['/experiments/1'],
+    fallback: true, // 404.html
   },
   router: {
     linkActiveClass: 'link-active',
@@ -116,6 +106,14 @@ const config: NuxtConfig = {
         theme: 'prism-themes/themes/prism-darcula.css',
       },
     },
+  },
+  /*
+   ** HTTP module configuration
+   ** See https://http.nuxtjs.org/api/#options
+   */
+  http: {},
+  googleAnalytics: {
+    id: 'UA-170187104-1',
   },
   pwa: {
     icon: {

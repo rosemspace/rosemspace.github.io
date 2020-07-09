@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <nuxt-link to="/">Home</nuxt-link>
+    <NuxtLink to="/">Home</NuxtLink>
     <!--    <svg width="1" height="28"><line x1="0" y1="0" x2="0" y2="28" stroke="currentColor"></line></svg>-->
-    <nuxt-link to="/authors/roshe">Author</nuxt-link>
+    <NuxtLink to="/authors/roshe">Author</NuxtLink>
   </nav>
 </template>
 

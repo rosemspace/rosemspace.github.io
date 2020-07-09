@@ -12,12 +12,7 @@
       <div ref="container">
         DIV element 2
         <div>DIV element 3</div>
-        <iframe
-          src="/experiments/iframe"
-          frameborder="0"
-          width="100%"
-          height="250"
-        ></iframe>
+        <iframe src="/experiments/iframe" width="100%" height="250"></iframe>
       </div>
     </div>
   </div>
@@ -32,7 +27,7 @@ export default Vue.extend({
     insertIframe(parentElement: Element) {
       const div = document.createElement('div')
 
-      div.innerHTML = `DIV element 1<div>DIV element 2<iframe src="/experiments/iframe" frameborder="0" width="100%"></iframe></div>`
+      div.innerHTML = `DIV element 1<div>DIV element 2<iframe src="/experiments/iframe" width="100%"></iframe></div>`
       // const iframe = document.createElement('iframe')
       //
       // iframe.src = `/iframe`

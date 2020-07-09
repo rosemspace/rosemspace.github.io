@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <nuxt-content :document="document" />
+    <NuxtContent :document="document" />
   </div>
 </template>
 
@@ -15,4 +15,4 @@ export default Vue.extend({
 })
 </script>
 
-<style src="~/assets/css/content.pcss" lang="postcss"></style>
+<style src="@/assets/css/content.pcss" lang="postcss"></style>
