@@ -48,7 +48,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import script from '~/assets/experiments/1.js'
+import script from './-1.js'
 
 export default Vue.extend({
   transition: 'fade',

@@ -1,20 +1,25 @@
-export default {
+import { resolve } from 'path'
+import { NuxtConfig } from '@nuxt/types'
+import { normalizeTitle } from './utils/content'
+
+// const locale = process.env.NUXT_LOCALE || 'en'
+
+const config: NuxtConfig = {
   mode: 'universal',
+  target: 'static',
   globalName: 'rosem',
   globals: {
-    readyCallback: 'onNuxtReady', // fix for the content module
-    loadedCallback: '_onNuxtLoaded',
+    readyCallback: () => 'onNuxtReady', // fix for the content module
+    loadedCallback: () => '_onNuxtLoaded',
+  },
+  privateRuntimeConfig: {
+    baseURL: 'https://rosem.space',
   },
   /*
    ** Headers of the page
    */
   head: {
-    title: (process.env.npm_package_name || '')
-      .replace(
-        /^\w|[-.]\w/g,
-        (match) => ` ${match[match.length - 1].toUpperCase()}`
-      )
-      .trimStart(),
+    title: normalizeTitle(process.env.npm_package_name || ''),
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -65,8 +70,8 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    // Doc: https://http.nuxtjs.org/guide/usage.html
+    '@nuxt/http',
     // Doc: https://content.nuxtjs.org
     '@nuxt/content',
     // Doc: https://github.com/nuxt-community/dotenv-module
@@ -90,7 +95,8 @@ export default {
    ** Build configuration
    */
   build: {
-    publicPath: '/media',
+    publicPath: '/assets',
+    extractCSS: true,
     /*
      ** You can extend webpack config here
      */
@@ -112,9 +118,13 @@ export default {
     },
   },
   pwa: {
+    icon: {
+      iconSrc: resolve(__dirname, './assets/images/logo.png'),
+    },
     manifest: {
       background_color: '#333',
       name: 'Rosem Space',
+      orientation: 'portrait',
       short_name: 'Rosem',
     },
     workbox: {
@@ -124,3 +134,5 @@ export default {
     },
   },
 }
+
+export default config

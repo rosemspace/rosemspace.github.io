@@ -32,7 +32,7 @@ main {
   /* nav height */
   top: -80px;
   z-index: -1;
-  filter: opacity(0.5);
+  filter: opacity(0.75);
 
   & > img {
     @apply w-full min-h-full object-cover;

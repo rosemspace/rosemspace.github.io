@@ -1,7 +1,7 @@
 <template>
   <img
     class="RosemLogo"
-    src="/icon.png"
+    src="~assets/images/logo.png"
     alt="Rosem logo"
     style="width: 242px; height: 242px;"
   />

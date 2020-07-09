@@ -7,9 +7,10 @@ import Vue from 'vue'
 
 export default Vue.extend({
   layout: 'blank',
-  async asyncData({ $axios }) {
+  async asyncData({ $http }) {
     const url = 'https://github.com/roshecode'
-    const html = await $axios.$get(url)
+    const response = await $http.get(url)
+    const html = await response.text()
 
     return {
       html: html.replace(

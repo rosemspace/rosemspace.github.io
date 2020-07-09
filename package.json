@@ -1,14 +1,36 @@
 {
   "name": "rosem.space",
-  "version": "1.0.0",
-  "description": "Rosem packages documentation and playground",
+  "version": "0.0.0",
+  "description": "Rosem packages documentation, blog and playground",
   "author": "Roman Shevchenko",
+  "homepage": "https://rosem.space",
+  "license": "MIT",
   "private": true,
+  "keywords": [
+    "rosem",
+    "framework",
+    "documentation",
+    "static-website",
+    "blog",
+    "nuxt",
+    "documentations",
+    "documentation-website",
+    "static",
+    "website",
+    "documentation-site",
+    "static-site",
+    "site",
+    "blogging",
+    "nuxtjs",
+    "roshe"
+  ],
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
-    "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
+    "export": "nuxt-ts export",
+    "serve": "nuxt-ts serve",
+    "generate": "nuxt-ts build && nuxt-ts export",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
@@ -22,15 +44,16 @@
     }
   },
   "dependencies": {
-    "@nuxt/content": "https://github.com/nuxt/content#master",
+    "@nuxt/content": "^1.4.1",
+    "@nuxt/http": "^0.5.7",
     "@nuxt/typescript-runtime": "^0.4.10",
-    "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.13.0",
+    "nuxt": "^2.13.3",
     "prism-themes": "^1.4.0"
   },
   "devDependencies": {
+    "@nuxt/types": "^2.13.3",
     "@nuxt/typescript-build": "^1.0.3",
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
@@ -39,17 +62,20 @@
     "@nuxtjs/tailwindcss": "^2.0.0",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.0.1",
-    "eslint": "^7.3.0",
+    "babel-jest": "^26.1.0",
+    "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.2.5",
-    "jest": "^26.0.1",
+    "jest": "^26.1.0",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "stylelint": "^13.6.1",
-    "ts-jest": "^26.1.0",
+    "ts-jest": "^26.1.1",
     "vue-jest": "^4.0.0-0"
+  },
+  "peerDependencies": {
+    "vue-meta": "^2.4.0"
   }
 }

@@ -10,15 +10,14 @@
 import Vue from 'vue'
 import RosemFooter from '@/components/Footer.vue'
 import RosemNavigation from '@/components/Navigation.vue'
-import { Montserrat } from '@/data/fonts'
-import { preloadCSS } from '@/utils/css'
+import { preloadGoogleFonts } from '@/utils/css'
 
 export default Vue.extend({
   components: {
     RosemNavigation,
     RosemFooter,
   },
-  head: preloadCSS({}, [Montserrat]),
+  head: preloadGoogleFonts({}, [{ family: 'Montserrat' }]),
 })
 </script>
 
@@ -49,7 +48,7 @@ export default Vue.extend({
 ::selection {
   @apply text-white;
 
-  background-color: rgba(211, 184, 188, 0.4);
+  background-color: rgba(211, 184, 188, 0.8);
 }
 
 html {
@@ -64,7 +63,8 @@ body {
   color: var(--text-color);
   /*background-color: #d3babe;*/
   /*background: #282a35 linear-gradient(#d3babe, #282a35);*/
-  background: #282a35 linear-gradient(#d3babe, #373e65);
+  /*background: #282a35 linear-gradient(#d3babe, #373e65);*/
+  background: #282a35 linear-gradient(#756f88, #373e65);
   /*background: #282a35 linear-gradient(#0e0414, #373e65);*/
 }
 

@@ -1,6 +1,6 @@
 ---
 title: CV
-description: CV.
+description: CV
 ---
 
 ![Photo](/authors/roshe.png)

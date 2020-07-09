@@ -7,7 +7,7 @@
         <span class="brand"
           ><span class="r">R</span><span class="o">o</span>sem</span
         >
-        Space
+        <span class="domain">Space</span>
       </h1>
       <!--      <h1 class="title"><span class="brand"><span class="r">R</span>oshe</span></h1>-->
       <p>
@@ -147,7 +147,7 @@ export default {
 }
 
 .title {
-  @apply text-5xl font-bold uppercase my-8;
+  @apply text-5xl font-bold my-8;
 
   /*color: var(--secondary-color);*/
   color: #fff2c0;
@@ -192,7 +192,7 @@ export default {
   /*text-indent: -99999%;*/
 
   &::after {
-    @apply absolute block w-8 h-8 rounded-full border border-2;
+    @apply absolute block w-8 h-8 rounded-full border;
 
     content: '';
     top: 1.8rem;
@@ -203,6 +203,17 @@ export default {
     transform-origin: -1.25rem 0;
     transition: transform 2s linear;
     /*background: currentColor radial-gradient(currentColor, #dc8b38);*/
+  }
+}
+
+.domain {
+  @apply relative lowercase;
+
+  &::before {
+    @apply absolute;
+
+    content: '.';
+    right: 100%;
   }
 }
 

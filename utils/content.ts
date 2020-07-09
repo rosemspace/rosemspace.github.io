@@ -1,5 +1,14 @@
 import Vue, { ComponentOptions } from 'vue'
 
+export function normalizeTitle(title: string): string {
+  return title
+    .replace(
+      /^\w|[-.]\w/g,
+      (match) => ` ${match[match.length - 1].toUpperCase()}`
+    )
+    .trimStart()
+}
+
 export function contentOptions<V extends Vue>(): ComponentOptions<V> {
   return {
     async asyncData({ $content, route: { path }, error }) {

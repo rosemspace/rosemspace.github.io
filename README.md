@@ -62,6 +62,7 @@ It will run the `npm run build` command and push forcibly all compiled files in 
 ## Work in progress
 
 - PWA content updating
+- [CI](https://nuxtjs.org/faq/github-pages)
 - Shorthand terminologies
     - Shorthand terminology priority
         1. Must know

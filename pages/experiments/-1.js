@@ -1,6 +1,10 @@
 /* eslint-disable */
 export default
 function(globalThis, undefined) {
+  if (process.server) {
+    return;
+  }
+
   'use strict';
 
   if (!globalThis || !(globalThis instanceof globalThis.Window)) {

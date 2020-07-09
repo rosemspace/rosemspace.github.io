@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
+      "ESNext",
+      "ESNext.AsyncIterable",
+      "DOM"
     ],
     "esModuleInterop": true,
     "allowJs": true,
@@ -25,9 +25,11 @@
     },
     "types": [
       "@types/node",
+      "@nuxt/content",
+      "@nuxt/http",
       "@nuxt/types",
-      "@nuxtjs/axios",
-      "@nuxt/content"
+      "@nuxt/vue-app",
+      "@nuxt/vue-renderer"
     ]
   },
   "exclude": [

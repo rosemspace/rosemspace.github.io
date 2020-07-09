@@ -1,3 +1,8 @@
+---
+title: Privacy Policy
+description: Privacy Policy for Rosem Space
+---
+
 # Privacy Policy for Rosem Space
 
 At Rosem Space, accessible from https://rosem.space, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Rosem Space and how we use it.
